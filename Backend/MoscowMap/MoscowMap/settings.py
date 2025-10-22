@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,8 @@ TEMPLATES = [
         },
     },
 ]
+
+STATIC_URL = '/static/'
 
 WSGI_APPLICATION = 'MoscowMap.wsgi.application'
 
