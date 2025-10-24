@@ -30,7 +30,7 @@ class Photo(models.Model):
     
     place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='Место')
     image = models.ImageField(upload_to="places", verbose_name='Картинка')
-    position = models.IntegerField(default=1, verbose_name='Позиция')
+    position = models.PositiveIntegerField(default=0, verbose_name='Позиция')
     
     def __str__(self):
         return self.image.url

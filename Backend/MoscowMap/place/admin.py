@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.conf import settings
 from django.utils.safestring import mark_safe
+from adminsortable2.admin import SortableAdminBase, SortableTabularInline
 
 from .models import Place, Photo 
 
 
-class PhotoInline(admin.TabularInline):
+class PhotoInline(SortableTabularInline):
     verbose_name = 'Фотография'
     verbose_name_plural = 'Фотографии'
     model = Photo
@@ -22,6 +23,6 @@ class PhotoInline(admin.TabularInline):
 
 # Register your models here.
 @admin.register(Place)
-class PlaceAdmin(admin.ModelAdmin):
+class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     list_display = ('title', 'lng', 'lat')
-    inlines = (PhotoInline,)
+    inlines = [PhotoInline]
