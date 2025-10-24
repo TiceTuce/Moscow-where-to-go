@@ -1,7 +1,9 @@
 from django.contrib import admin
+from django.db import models
 from django.conf import settings
 from django.utils.safestring import mark_safe
 from adminsortable2.admin import SortableAdminBase, SortableTabularInline
+from tinymce.widgets import TinyMCE
 
 from .models import Place, Photo 
 
@@ -20,9 +22,14 @@ class PhotoInline(SortableTabularInline):
         # return mark_safe(f'<img src="{}">')
     
 
-
 # Register your models here.
 @admin.register(Place)
 class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     list_display = ('title', 'lng', 'lat')
     inlines = [PhotoInline]
+    
+    formfield_overrides = {
+        models.TextField: {
+            'widget': TinyMCE()
+        }
+    }

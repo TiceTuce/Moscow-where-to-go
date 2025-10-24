@@ -4,6 +4,7 @@ class Place(models.Model):
     class Meta:
         verbose_name = 'Место'
         verbose_name_plural = 'Места'
+        
     
     title = models.CharField(
         max_length=120, 
@@ -14,7 +15,6 @@ class Place(models.Model):
         verbose_name='Короткое описание'    
     )
     description_long = models.TextField(
-        max_length=1500,
         verbose_name='Полное описание'
     )
     lng = models.FloatField(verbose_name='Долгота')
