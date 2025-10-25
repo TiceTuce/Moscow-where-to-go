@@ -2,6 +2,9 @@
 
 Интерактивная карта Москвы, которая позволит вам узнать о множестве интересных мест в Москве
 
+<img width="1920" height="900" alt="image" src="https://github.com/user-attachments/assets/d9096dcc-228e-4ba2-b540-de5db9057b7d" />
+
+
 ## Подготовка
 
 1. Установить python версии 3.13+
