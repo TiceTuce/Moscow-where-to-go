@@ -19,5 +19,27 @@
 
 Для доступа к административной панели необходимо в адресной строке к домену добавить /admin.
 
+## Скрипты
+В проекте есть скрипт для добавления списка мест из JSON. Для этого необходимо выполнить команду `python manage.py load_place *ссылка на JSON*`
+Сам JSON должен включать следующую стрктуру для корректного парсинга:
+```
+"results": [
+  {
+    "title": str,
+    "body_text": str,
+    "description": str,
+    "coords": {
+      "lat": float,
+      "lon": float
+    },
+    "images": [
+      {
+        "image": url to image (example: "https://site.com/images/1.png")
+      }
+    ]
+  },
+]
+```
+
 
 # [Ссылка на рабочий сайт](https://rolba.pythonanywhere.com/)
