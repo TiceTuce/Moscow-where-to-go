@@ -21,6 +21,9 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
+CSRF_COOKIE_SECURE=env('CSRF_COOKIE_SECURE')
+SESSION_COOKIE_SECURE=env('SESSION_COOKIE_SECURE')
+
 
 # Application definition
 
