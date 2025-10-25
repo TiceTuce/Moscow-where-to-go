@@ -38,10 +38,11 @@ class Command(BaseCommand):
             
             for index, image_info in enumerate(place['images'][:10]):
                 image_url = image_info['image']
-                downloaded_img_path = wget.download(image_url, os.path.join(MEDIA_ROOT, 'places'))
+                image_name = image_url.split('/')[-1]
+                wget.download(image_url, os.path.join(MEDIA_ROOT, 'places'))
                 Photo.objects.create(
                     place=new_place,
-                    image=downloaded_img_path,
+                    image=os.path.join('places', image_name),
                     position=index
                 )
                 
