@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core import serializers
+from django.urls import path
 
 from place.models import Place
 
@@ -21,7 +22,7 @@ def home(request):
             'properties': {
                 'title': place_fields['title'],
                 'placeId': place_id,
-                'detailsUrl': f'http://127.0.0.1:8000/places/{place_id}'
+                'detailsUrl': f'{request.build_absolute_uri()}/places/{place_id}'
             }
         }
         features.append(feature)
